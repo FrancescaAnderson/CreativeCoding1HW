@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Simple Math Game</title>
+    <script>
+      let correct = 0;
+      let incorrect = 0;
+      let totalQuestions = 0;
+      let num1, num2, answer;
+
+      function generateQuestion() {
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+        answer = num1 + num2;
+
+        document.getElementById("question").innerHTML = `What is ${num1} + ${num2}?`;
+        document.getElementById("userAnswer").value = "";
+        document.getElementById("userAnswer").focus();
+      }
+
+      function checkAnswer() {
+        const userAnswer = parseInt(document.getElementById("userAnswer").value);
+
+        if (userAnswer === answer) {
+          correct++;
+        } else {
+          incorrect++;
+        }
+
+        totalQuestions++;
+
+        if (totalQuestions < 10) {
+          generateQuestion();
+        } else {
+          const percent = Math.round((correct / 10) * 100);
+          document.getElementById("game").innerHTML = `
+            <h4>Game Over!</h4>
+            <p>Correct: ${correct}</p>
+            <p>Incorrect: ${incorrect}</p>
+            <p>You got ${percent}% correct!</p>
+            <button onclick="restartGame()" class="btn btn-primary">Play Again</button>
+          `;
+        }
+      }
+
+      function restartGame() {
+        correct = 0;
+        incorrect = 0;
+        totalQuestions = 0;
+        document.getElementById("game").innerHTML = `
+          <p id="question"></p>
+          <input type="number" id="userAnswer">
+          <button onclick="checkAnswer()" class="btn btn-success">Submit Answer</button>
+        `;
+        generateQuestion();
+      }
+
+      window.onload = restartGame;
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+
+  <body style="background-color: burlywood;" class="container mt-4">
+    <h3>Simple Math Game</h3>
+    <div id="game" style="background-color: bisque; padding: 10px; border-radius: 10px;"></div>
+    <br>
+    <a href="Page3.html">Contact Us</a> | <a href="Page2.html">Fish Fashion</a> | <a href="index.html">Home</a> | <a href="Page1.html">Favorite Fish</a>
+  </body>
+</html>
