@@ -1,0 +1,21 @@
+body#fashion-page {
+    background-image: url('fish.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h2, h3 {
+    color: #4CAF50;
+}
+
+.highlight {
+    color: #0277bd;
+    font-weight: bold;
+}
+
+#special-note {
+    background-color: #ffeb3b;
+    padding: 10px;
+    border-radius: 8px;
+}
