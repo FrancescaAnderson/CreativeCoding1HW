@@ -49,15 +49,16 @@
   <body style="background-color: burlywood;">
     <h3>Contact Us</h3>
     <br>
-    <form style="background-color: bisque; padding: 10px;">
+    <form style="background-color: bisque; padding: 10px;" onsubmit="return validateForm();">
       <input type="text" id="name" placeholder="Your Name"> Name<br><br>
       <input type="text" id="email" placeholder="Your Email"> Email<br><br>
       <input type="checkbox" id="terms"> I agree to the terms and conditions<br><br>
 
-      <button class="btn btn-primary" onclick="return validateForm();">Submit</button>
+      <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 
     <br>
     <a href="Page4.html">Math Game</a> | <a href="Page2.html">Fish Fashion</a> | <a href="index.html">Home</a> | <a href="Page1.html">Favorite Fish</a>
   </body>
 </html>
+
